@@ -14,6 +14,7 @@ public class BidsController : ControllerBase {
 
     public BidsController (IBidService bidService) {
         _bidService = bidService;
+
     }
 
     [HttpPost]
