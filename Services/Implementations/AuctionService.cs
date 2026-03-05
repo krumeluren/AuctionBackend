@@ -22,13 +22,15 @@ public class AuctionService : IAuctionService {
 
         if(!isAdmin) { // show only active auctions to non admins
             query = query.Where(a => a.IsActive);
+        } else {
+            query = query.OrderBy(a => a.IsActive); // show active auctions first to admins
         }
 
         if(!string.IsNullOrWhiteSpace(searchQuery)) {
             query = query.Where(a => a.Title.Contains(searchQuery));
         }
 
-        //order query by end date ascending
+        //order query by active then by end date
         query = query.OrderBy(a => a.EndDate);
 
         List<Auction> auctions = query.ToList();
