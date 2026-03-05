@@ -40,7 +40,7 @@ public class AuctionService : IAuctionService {
             Title = a.Title,
             Description = a.Description,
             StartingPrice = a.StartingPrice,
-            CurrentPrice = a.Bids.Any() ? a.Bids.Max(b => b.Amount) : a.StartingPrice,
+            CurrentPrice = a.Bids.Any() ? a.Bids.Max(b => b.Amount) : a.StartingPrice, // max bid or starting price
             StartDate = a.StartDate,
             EndDate = a.EndDate,
             CreatorId = a.CreatorId,
